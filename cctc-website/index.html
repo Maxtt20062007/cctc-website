@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CCTC · Home Repair & Painting in Moose Jaw, SK</title>
+<meta name="description" content="CCTC (Canadian Trusted Construction Company): painting, drywall, doors and small home repairs in Moose Jaw, SK. Surveyed on site, quoted line by line, call-back by the next business day.">
+<meta property="og:title" content="CCTC · Home repair, engineered for trust">
+<meta property="og:description" content="Painting and small home repairs in Moose Jaw, SK. Book a site survey online.">
+<meta name="theme-color" content="#070D18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Crect width='30' height='30' fill='%23070D18'/%3E%3Crect x='1' y='1' width='28' height='28' fill='none' stroke='%23FFB23F' stroke-width='2'/%3E%3Cpath d='M7 21 L15 9 L23 21 Z' fill='none' stroke='%23E7EDF7' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: blueprint sheet. Survey-grid ground, sections read like drawing sheets with mono sheet labels. */
+:root{
+  color-scheme: dark;
+  --ink:#070D18; --sheet:#0C1526; --line:#1C2A44; --line-hi:#2D4166;
+  --text:#E7EDF7; --muted:#8C9AB3; --amber:#FFB23F; --cyan:#6FD3FF; --good:#5FE3A1; --bad:#FF7A6B;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --wrap:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  margin:0;background:var(--ink);color:var(--text);font:16px/1.6 var(--f-body);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;background-position:-1px -1px;background-attachment:fixed;
+}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--ink) 75%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.02}
+h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:800;font-stretch:112%;letter-spacing:-.01em}
+h3{font-size:1.2rem;font-weight:700;font-stretch:105%;line-height:1.2}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--amber);color:#1a1100;padding:8px 12px}
+.skip:focus{left:8px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ink) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:1.15rem;letter-spacing:.04em}
+.logo svg{flex:none}
+.nav ul{display:flex;gap:20px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-size:.9rem;color:var(--muted);transition:color .2s}
+.nav ul a:hover{color:var(--text)}
+.nav .tel{font-family:var(--f-mono);font-size:.85rem;text-decoration:none;color:var(--cyan);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 .92rem var(--f-body);text-decoration:none;padding:12px 20px;border-radius:2px;border:1px solid var(--line-hi);color:var(--text);background:transparent;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--amber);color:#1a1100;border-color:var(--amber)}
+.btn.primary:hover{background:#ffc56c;transform:translateY(-1px)}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.nav .btn{padding:9px 16px}
+@media (max-width:1020px){.nav ul{display:none}.nav .tel{margin-left:auto}}
+@media (max-width:520px){.nav .tel{display:none}.nav .btn{margin-left:auto}}
+
+/* HERO */
+.hero{position:relative;padding-block:64px 40px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-hi);padding:6px 12px;background:var(--sheet)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--good);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 70%,transparent)}100%{box-shadow:0 0 0 10px transparent}}
+.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);font-weight:900;font-stretch:118%;letter-spacing:-.02em;margin-top:22px;line-height:.95}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero .lede{font-size:1.12rem;color:var(--muted);max-width:34em;margin-top:22px}
+.hero .lede b{color:var(--text);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.areacheck{margin-top:28px;border:1px solid var(--line-hi);background:var(--sheet);padding:14px 16px;max-width:30rem}
+.areacheck form{display:flex;gap:8px;margin-top:8px}
+.areacheck input{flex:1;min-width:0;font:inherit;font-family:var(--f-mono);text-transform:uppercase;color:var(--text);background:var(--ink);border:1px solid var(--line-hi);padding:9px 12px}
+.areacheck input:focus{outline:none;border-color:var(--amber)}
+.areacheck .btn{padding:9px 14px}
+.areamsg{font-size:.9rem;margin-top:8px;min-height:1.4em}
+.scan{position:relative;aspect-ratio:1/0.86;max-width:100%;border:1px solid var(--line-hi);background:color-mix(in srgb,var(--sheet) 70%,transparent)}
+.scan canvas{position:absolute;inset:0;width:100%;height:100%}
+.scan .corner{position:absolute;font-family:var(--f-mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+.scan .tl{top:10px;left:12px}.scan .tr{top:10px;right:12px;color:var(--cyan)}.scan .bl{bottom:10px;left:12px}.scan .br{bottom:10px;right:12px;color:var(--amber)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{padding-block:44px 24px}}
+
+.titleblock{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line-hi);background:var(--sheet);margin-top:48px}
+.titleblock div{padding:18px 20px;border-right:1px solid var(--line);min-width:0}
+.titleblock div:last-child{border-right:0}
+.titleblock b{display:block;font-family:var(--f-display);font-stretch:110%;font-size:1.3rem;font-weight:700;margin-top:6px}
+@media (max-width:760px){.titleblock{grid-template-columns:1fr 1fr}.titleblock div:nth-child(2){border-right:0}.titleblock div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* SECTIONS */
+section.block{padding-block:88px}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:44px}
+.sec-head .mono{padding-top:10px;border-top:1px solid var(--amber);color:var(--amber);align-self:start}
+.sec-head p{color:var(--muted);font-size:1.08rem;max-width:40em;margin-top:18px}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;gap:12px}section.block{padding-block:60px}}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-hi);border-left:1px solid var(--line-hi)}
+.svc{padding:26px 22px 24px;border-right:1px solid var(--line-hi);border-bottom:1px solid var(--line-hi);display:flex;flex-direction:column;gap:12px;min-width:0;background:color-mix(in srgb,var(--ink) 60%,transparent);transition:background .25s}
+.svc:hover{background:var(--sheet)}
+.svc svg{color:var(--cyan)}
+.svc p{color:var(--muted);font-size:.94rem}
+.svc .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:8px}
+.tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border:1px solid;white-space:nowrap}
+.tag.now{color:var(--good);border-color:color-mix(in srgb,var(--good) 45%,transparent)}
+.tag.next{color:var(--muted);border-color:var(--line-hi)}
+.svc .ask{font-size:.85rem;color:var(--amber);text-decoration:none;background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+.svc .ask:hover{text-decoration:underline}
+@media (max-width:980px){.services{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.services{grid-template-columns:1fr}}
+
+/* PROMISE */
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-hi);border:1px solid var(--line-hi)}
+.promise div{background:var(--sheet);padding:28px 26px}
+.promise b{display:block;font-family:var(--f-mono);font-size:.75rem;color:var(--amber);letter-spacing:.08em;margin-bottom:10px}
+.promise p{color:var(--muted);margin-top:8px;font-size:.95rem}
+@media (max-width:860px){.promise{grid-template-columns:1fr}}
+
+/* PROCESS */
+.process{display:grid;grid-template-columns:repeat(5,1fr);list-style:none;margin:0;padding:0}
+.step{padding:0 20px 0 0;min-width:0}
+.step .node{display:flex;align-items:center;margin-bottom:22px}
+.step .node span{flex:none;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--amber);color:var(--amber);font-family:var(--f-mono);font-size:.85rem;background:var(--ink)}
+.step .node i{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--line-hi) 0 6px,transparent 6px 12px)}
+.step:last-child .node i{background:none}
+.step p{color:var(--muted);font-size:.93rem;margin-top:10px}
+@media (max-width:900px){.process{grid-template-columns:1fr;gap:28px}.step{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:0}.step .node{margin:0}.step .node i{display:none}}
+
+/* CALCULATOR */
+.calc{display:grid;grid-template-columns:1fr 1.1fr;border:1px solid var(--line-hi);background:var(--sheet)}
+.calc-in{padding:32px;border-right:1px solid var(--line-hi);display:grid;gap:20px;align-content:start}
+.field{display:grid;gap:8px}
+.field label{display:flex;justify-content:space-between;font-size:.92rem}
+.field label output{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:var(--line-hi);border-radius:0;outline-offset:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--ink);border:2px solid var(--cyan);cursor:pointer;transform:rotate(45deg)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--ink);border:2px solid var(--cyan);border-radius:0;cursor:pointer}
+input[type=range].price::-webkit-slider-thumb{border-color:var(--amber)}
+input[type=range].price::-moz-range-thumb{border-color:var(--amber)}
+.calc-out{padding:32px;display:grid;gap:26px;align-content:start;min-width:0}
+.formula{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);border:1px dashed var(--line-hi);padding:14px 16px;line-height:1.7;overflow-x:auto}
+.formula b{color:var(--amber);font-weight:500}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.big div{border-top:1px solid var(--line-hi);padding-top:12px}
+.big strong{display:block;font-family:var(--f-display);font-stretch:115%;font-weight:800;font-size:clamp(2rem,4vw,2.8rem);font-variant-numeric:tabular-nums;line-height:1.1;margin-top:4px}
+.big .neg{color:var(--bad)}
+.bar{display:flex;height:34px;border:1px solid var(--line-hi);overflow:hidden}
+.bar span{transition:flex-basis .35s ease;display:block;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.c-mat{background:var(--cyan)}.c-trv{background:#3F7FA8}.c-ads{background:#2A4E70}.c-pro{background:var(--amber)}
+.reserve{font-size:.92rem;color:var(--muted)}
+.reserve b{color:var(--text);font-family:var(--f-mono);font-weight:500}
+@media (max-width:860px){.calc{grid-template-columns:1fr}.calc-in{border-right:0;border-bottom:1px solid var(--line-hi)}.calc-in,.calc-out{padding:24px 20px}}
+
+/* BOOKING */
+.book{display:grid;grid-template-columns:.85fr 1.15fr;border:1px solid var(--line-hi);background:var(--sheet)}
+.book>div{padding:40px;min-width:0}
+.book>div:first-child{border-right:1px solid var(--line-hi)}
+.book ol{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:16px;counter-reset:n}
+.book ol li{display:grid;grid-template-columns:34px 1fr;gap:12px;color:var(--muted);counter-increment:n}
+.book ol li::before{content:counter(n,decimal-leading-zero);font-family:var(--f-mono);font-size:.8rem;color:var(--amber);border:1px solid var(--amber);height:28px;display:grid;place-items:center}
+.book ol li b{color:var(--text);display:block;font-weight:600}
+.callnow{margin-top:28px;padding-top:20px;border-top:1px solid var(--line-hi)}
+.callnow a{font-family:var(--f-display);font-size:1.6rem;font-weight:800;font-stretch:110%;text-decoration:none;color:var(--cyan)}
+form.lead{display:grid;gap:14px;margin-top:22px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.in{display:grid;gap:6px;min-width:0}
+.in label{font-size:.82rem;color:var(--muted)}
+.in label .req{color:var(--amber)}
+.in input,.in select,.in textarea{font:inherit;font-size:.95rem;color:var(--text);background:var(--ink);border:1px solid var(--line-hi);border-radius:0;padding:11px 12px;width:100%}
+.in input:focus,.in select:focus,.in textarea:focus{outline:none;border-color:var(--amber)}
+.in input[aria-invalid=true]{border-color:var(--bad)}
+.in textarea{min-height:100px;resize:vertical}
+.check{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:.85rem;color:var(--muted);align-items:start}
+.check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--amber)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.formmsg{font-size:.95rem;min-height:1.4em}
+.formmsg.ok{color:var(--good)}.formmsg.err{color:var(--bad)}
+.done{border:1px solid color-mix(in srgb,var(--good) 45%,transparent);padding:22px;margin-top:22px}
+.done h3{color:var(--good)}
+.done p{color:var(--muted);margin-top:8px}
+@media (max-width:900px){.book{grid-template-columns:1fr}.book>div:first-child{border-right:0;border-bottom:1px solid var(--line-hi)}.book>div{padding:28px 20px}}
+@media (max-width:460px){.row{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{border-top:1px solid var(--line-hi)}
+.faq details{border-bottom:1px solid var(--line-hi)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font-family:var(--f-display);font-weight:700;font-stretch:105%;font-size:1.15rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:16px;font-family:var(--f-mono);font-size:1.3rem;color:var(--amber);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 22px;max-width:46em}
+
+/* ABOUT: standards, roadmap, founder */
+.principles{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-hi);border:1px solid var(--line-hi)}
+.pr{background:var(--ink);padding:30px;display:grid;grid-template-columns:auto 1fr;gap:20px;min-width:0}
+.pr .code{font-family:var(--f-mono);font-size:.75rem;color:var(--cyan);border:1px solid color-mix(in srgb,var(--cyan) 40%,transparent);padding:4px 8px;height:max-content;white-space:nowrap}
+.pr p{color:var(--muted);margin-top:8px;font-size:.96rem}
+@media (max-width:760px){.principles{grid-template-columns:1fr}.pr{padding:24px 20px;grid-template-columns:1fr;gap:12px}.pr .code{justify-self:start}}
+.founder{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+blockquote{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.2;text-wrap:balance}
+blockquote::before{content:"\201C";color:var(--amber);font-size:1.4em;line-height:0;vertical-align:-.35em;margin-right:4px}
+.founder .note{color:var(--muted);margin-top:20px}
+.road{display:grid}
+.phase{display:grid;grid-template-columns:150px 28px 1fr;gap:20px;padding-bottom:28px}
+.phase .when{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);padding-top:3px;text-align:right}
+.phase .dot{position:relative;display:flex;justify-content:center}
+.phase .dot::before{content:"";position:absolute;top:22px;bottom:-28px;width:1px;background:var(--line-hi)}
+.phase:last-child .dot::before{display:none}
+.phase .dot i{width:14px;height:14px;margin-top:4px;border:2px solid var(--line-hi);background:var(--ink);transform:rotate(45deg);position:relative;z-index:1}
+.phase.live .dot i{border-color:var(--amber);background:var(--amber)}
+.phase p{color:var(--muted);margin-top:6px;font-size:.95rem}
+@media (max-width:860px){.founder{grid-template-columns:1fr;gap:40px}}
+@media (max-width:560px){.phase{grid-template-columns:20px 1fr;gap:14px}.phase .when{grid-column:2;text-align:left;order:-1;padding:0}.phase .dot{grid-row:1 / span 2;grid-column:1}.phase>div:last-child{grid-column:2}}
+.partners{margin-top:56px;border:1px dashed var(--line-hi);padding:28px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.partners p{color:var(--muted);max-width:44em;margin-top:8px}
+
+/* FOOTER + mobile bar */
+footer{border-top:1px solid var(--line-hi);padding-block:40px 32px;margin-top:40px;background:var(--ink)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.fgrid ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:6px}
+.fgrid a{color:var(--muted);text-decoration:none;font-size:.92rem}
+.fgrid a:hover{color:var(--text)}
+.fgrid p{color:var(--muted);font-size:.92rem;margin-top:10px}
+.fbase{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media (max-width:760px){.fgrid{grid-template-columns:1fr}}
+.mbar{display:none}
+@media (max-width:760px){
+  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;border-top:1px solid var(--line-hi);background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .mbar a{display:grid;place-items:center;height:54px;font-weight:600;text-decoration:none}
+  .mbar a:first-child{color:var(--cyan);border-right:1px solid var(--line-hi)}
+  .mbar a:last-child{background:var(--amber);color:#1a1100}
+  .mbar.one{grid-template-columns:1fr}
+  body{padding-bottom:60px}
+}
+
+.rv{transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
+.js .rv.pre{transform:translateY(18px);opacity:.25}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .rv.pre{transform:none;opacity:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#book">Skip to booking form</a>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="CCTC home">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" fill="none" stroke="#FFB23F" stroke-width="2"/><path d="M7 21 L15 9 L23 21 Z" fill="none" stroke="#E7EDF7" stroke-width="2"/><path d="M15 9 V21" stroke="#6FD3FF" stroke-width="1.5"/></svg>
+      CCTC
+    </a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#area">Service area</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="tel" data-phone-link hidden></a>
+    <a class="btn primary" href="#book">Book a survey</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="status mono"><i></i>Now booking jobs · Moose Jaw, SK</span>
+        <h1>Home repair, <em>engineered</em> for trust.</h1>
+        <p class="lede"><b>Canadian Trusted Construction Company</b> does painting and small home repairs the way an engineer would: surveyed on site, quoted line by line, and logged after every job. Send a request and we'll call you by the next business day.</p>
+        <div class="cta">
+          <a class="btn primary" href="#book">Request a site survey <span aria-hidden="true">→</span></a>
+          <a class="btn" href="#services">See services</a>
+        </div>
+        <div class="areacheck" id="area">
+          <span class="mono">Do we serve your address?</span>
+          <form id="areaForm" novalidate>
+            <label for="pc" class="hp">Postal code</label>
+            <input id="pc" placeholder="Postal code, e.g. S6H 1A1" autocomplete="postal-code" maxlength="7">
+            <button class="btn" type="submit">Check</button>
+          </form>
+          <p class="areamsg" id="areaMsg" role="status"></p>
+        </div>
+      </div>
+      <div class="scan rv" role="img" aria-label="Animated wireframe of a house being scanned">
+        <canvas id="scan"></canvas>
+        <span class="corner tl">SHEET A-01 · SITE SCAN</span>
+        <span class="corner tr" id="scanY">Z 0.00 m</span>
+        <span class="corner bl">CCTC-SK / MOOSE JAW</span>
+        <span class="corner br">SCALE 1:50</span>
+      </div>
+    </div>
+
+    <div class="titleblock rv" role="list">
+      <div role="listitem"><span class="mono">Based in</span><b>Moose Jaw, SK</b></div>
+      <div role="listitem"><span class="mono">Call-back</span><b>Next business day</b></div>
+      <div role="listitem"><span class="mono">Quotes</span><b>Line by line</b></div>
+      <div role="listitem"><span class="mono">Every job</span><b>Same 5 steps</b></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">01 · Services</span>
+      <div>
+        <h2>The jobs we take on today.</h2>
+        <p>We only list what we deliver now. Bigger work unlocks once our records show we can do it to the same standard.</p>
+      </div>
+    </div>
+    <div class="services rv">
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="4" width="20" height="9"/><path d="M25 8h4v8H16v5"/><rect x="13" y="21" width="6" height="10"/></svg>
+        <h3>Interior painting</h3>
+        <p>Walls, ceilings, trim and doors. Surface prep, materials and cleanup written into the quote.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Interior painting">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 30h28M6 30V18h22v12M6 22h22M6 26h22M10 18v12M17 18v12M24 18v12"/></svg>
+        <h3>Exterior, deck &amp; fence</h3>
+        <p>Siding touch-ups, trim, decks and fences, prepped and coated for prairie weather.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Exterior / deck / fence painting">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="26" height="26"/><path d="M12 13l4 3-2 4 5 2"/><rect x="18" y="20" width="8" height="6" stroke-dasharray="2 2"/></svg>
+        <h3>Drywall patching</h3>
+        <p>Holes, dents and cracks filled, sanded and painted to match, so the repair disappears.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Drywall patching">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 6a6 6 0 0 0-6 8L5 23l4 4 9-9a6 6 0 0 0 8-6l-4 4-3-1-1-3z"/></svg>
+        <h3>Minor repairs</h3>
+        <p>Sticking doors, loose hardware, fixtures and the small jobs larger contractors turn down.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Minor repair">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="9" y="3" width="16" height="28"/><circle cx="21" cy="17" r="1.4" fill="currentColor"/><path d="M9 31h16"/></svg>
+        <h3>Doors &amp; hardware</h3>
+        <p>Adjusting, re-hanging and fitting handles, hinges, stops and weatherstripping.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Doors & hardware">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12l13-7 13 7v14l-13 6-13-6z"/><path d="M4 12l13 7 13-7M17 19v13"/></svg>
+        <h3>Materials supply</h3>
+        <p>Paint and supplies sourced at tracked cost, so you see exactly what materials add to the price.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Materials supply">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 29h24M8 29V12h18v17M8 18h18"/><path d="M12 12V7h10v5"/></svg>
+        <h3>Move-in / move-out refresh</h3>
+        <p>Patch, paint and fix a list of small items in one visit, ready for new owners or tenants.</p>
+        <div class="foot"><span class="tag now">Available</span><button class="ask" data-service="Move-in / move-out refresh">Request →</button></div>
+      </article>
+      <article class="svc">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 30h26M7 30V15l10-8 10 8v15"/><path d="M13 30v-8h8v8"/></svg>
+        <h3>Crew renovations</h3>
+        <p>Full renovations by a standing crew, using the same protocol as every small job.</p>
+        <div class="foot"><span class="tag next">Coming later</span><button class="ask" data-service="Renovation (join waitlist)">Waitlist →</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="promise" style="padding-top:0">
+  <div class="wrap">
+    <div class="promise rv">
+      <div><b>PROMISE 01</b><h3>A real quote before any work</h3><p>We see the job in person, then give you materials, travel and labour on separate lines.</p></div>
+      <div><b>PROMISE 02</b><h3>No surprise charges</h3><p>If the scope changes, the change is quoted and agreed before it happens.</p></div>
+      <div><b>PROMISE 03</b><h3>We call you back fast</h3><p>Every request gets a call by the next business day, often the same day.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">02 · How it works</span>
+      <div>
+        <h2>Every job runs the same five steps.</h2>
+        <p>A $70 paint touch-up and a larger job follow one checklist. That consistency is what you're paying for.</p>
+      </div>
+    </div>
+    <ol class="process rv">
+      <li class="step"><div class="node"><span>01</span><i></i></div><div><h3>Site survey</h3><p>We visit, measure and photograph the job before any number is given.</p></div></li>
+      <li class="step"><div class="node"><span>02</span><i></i></div><div><h3>Transparent quote</h3><p>Materials, travel and labour on separate lines. No lump-sum guesses.</p></div></li>
+      <li class="step"><div class="node"><span>03</span><i></i></div><div><h3>Confirmation</h3><p>Scope, price and schedule agreed in writing before work starts.</p></div></li>
+      <li class="step"><div class="node"><span>04</span><i></i></div><div><h3>Execution</h3><p>The work, done to the agreed scope, with changes quoted before they happen.</p></div></li>
+      <li class="step"><div class="node"><span>05</span><i></i></div><div><h3>Record</h3><p>Costs, time and lessons are logged for every job, so the next one is better.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="pricing">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">03 · Pricing</span>
+      <div>
+        <h2>See how a price is built.</h2>
+        <p>This is the formula behind every quote. Drag the sliders. The starting values are a real example from our pilot plan.</p>
+      </div>
+    </div>
+    <div class="calc rv">
+      <div class="calc-in">
+        <div class="field"><label for="mat">Materials cost <output id="o-mat">$40</output></label><input type="range" id="mat" min="0" max="400" step="5" value="40"></div>
+        <div class="field"><label for="trv">Travel cost <output id="o-trv">$5</output></label><input type="range" id="trv" min="0" max="100" step="1" value="5"></div>
+        <div class="field"><label for="ads">Marketing cost <output id="o-ads">$5</output></label><input type="range" id="ads" min="0" max="100" step="1" value="5"></div>
+        <div class="field"><label for="price">Selling price <output id="o-price">$70</output></label><input type="range" class="price" id="price" min="10" max="800" step="5" value="70"></div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <div class="formula"><b>Profit</b> = Price − (Materials + Travel + Marketing)<br><b>Margin</b> = Profit ÷ Price × 100%</div>
+        <div class="big">
+          <div><span class="mono">Profit (CAD)</span><strong id="r-profit">$20.00</strong></div>
+          <div><span class="mono">Margin</span><strong id="r-margin">28.6%</strong></div>
+        </div>
+        <div>
+          <div class="bar" role="img" aria-label="Breakdown of the selling price"><span class="c-mat" id="b-mat"></span><span class="c-trv" id="b-trv"></span><span class="c-ads" id="b-ads"></span><span class="c-pro" id="b-pro"></span></div>
+          <div class="legend" style="margin-top:10px"><span><i class="c-mat"></i>Materials</span><span><i class="c-trv"></i>Travel</span><span><i class="c-ads"></i>Marketing</span><span><i class="c-pro"></i>Profit</span></div>
+        </div>
+        <p class="reserve">Half of each profit goes to our reserve fund first, so the business stays stable: <b id="r-res">$10.00</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="book">
+  <div class="wrap">
+    <div class="book rv">
+      <div>
+        <span class="mono" style="color:var(--amber)">04 · Book</span>
+        <h2 style="margin-top:14px">Book a site survey.</h2>
+        <p style="color:var(--muted);margin-top:16px">Tell us about the job. Here's what happens next:</p>
+        <ol>
+          <li><div><b>You get a confirmation</b>An email right away if you leave your email address.</div></li>
+          <li><div><b>We call you</b>By the next business day to ask a few questions.</div></li>
+          <li><div><b>We visit and quote</b>A site survey at a time that suits you, then a written quote.</div></li>
+        </ol>
+        <div class="callnow" data-phone-block hidden>
+          <span class="mono">Prefer to talk now?</span><br>
+          <a data-phone-link></a>
+        </div>
+      </div>
+      <div>
+        <form class="lead" id="leadForm" novalidate>
+          <div class="row">
+            <div class="in"><label for="nm">Full name <span class="req">*</span></label><input id="nm" name="name" required autocomplete="name"></div>
+            <div class="in"><label for="ph">Phone <span class="req">*</span></label><input id="ph" name="phone" type="tel" required autocomplete="tel" placeholder="306-555-0123"></div>
+          </div>
+          <div class="row">
+            <div class="in"><label for="em">Email <span style="color:var(--muted)">(for your confirmation)</span></label><input id="em" name="email" type="email" autocomplete="email"></div>
+            <div class="in"><label for="pc2">Postal code</label><input id="pc2" name="postal" autocomplete="postal-code" maxlength="7" style="text-transform:uppercase"></div>
+          </div>
+          <div class="in"><label for="ad">Address or neighbourhood</label><input id="ad" name="address" autocomplete="street-address" placeholder="e.g. 123 Main St N, or 'near Crescent Park'"></div>
+          <div class="row">
+            <div class="in"><label for="sv">Service</label>
+              <select id="sv" name="service">
+                <option>Interior painting</option><option>Exterior / deck / fence painting</option><option>Drywall patching</option><option>Minor repair</option><option>Doors &amp; hardware</option><option>Materials supply</option><option>Move-in / move-out refresh</option><option>Renovation (join waitlist)</option><option>Not sure / other</option><option>Investing or partnering</option>
+              </select>
+            </div>
+            <div class="in"><label for="bt">Best time to call</label>
+              <select id="bt" name="bestTime"><option>Anytime</option><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option>Evening (5–8)</option></select>
+            </div>
+          </div>
+          <div class="in"><label for="dt">When would you like the work done?</label>
+            <select id="dt" name="when"><option>As soon as possible</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting a price</option></select>
+          </div>
+          <div class="in"><label for="ms">Tell us about the job <span class="req">*</span></label><textarea id="ms" name="details" required placeholder="e.g. Repaint a 12 × 14 ft bedroom, two doors and trim"></textarea></div>
+          <div class="hp" aria-hidden="true"><label for="wb">Leave this empty</label><input id="wb" name="website" tabindex="-1" autocomplete="off"></div>
+          <label class="check"><input type="checkbox" id="ok" name="consent" required><span>I agree that CCTC may contact me by phone or email about this request. <span class="req">*</span></span></label>
+          <button class="btn primary" type="submit" id="sendBtn" style="justify-self:start">Send request <span aria-hidden="true">→</span></button>
+          <p class="formmsg" id="fm" role="status" aria-live="polite"></p>
+        </form>
+        <div class="done" id="doneBox" hidden tabindex="-1">
+          <h3>Request received.</h3>
+          <p id="doneText"></p>
+          <p style="margin-top:14px"><button class="btn" type="button" id="againBtn">Send another request</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">05 · FAQ</span>
+      <div><h2>Questions homeowners ask.</h2></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>What kinds of jobs do you take?</summary><p>Interior and exterior painting, deck and fence coating, drywall patching, doors and hardware, small repairs, and materials supply. If you're not sure whether your job fits, send a request and pick "Not sure / other".</p></details>
+      <details><summary>How fast will you get back to me?</summary><p>Every request gets a phone call by the next business day. Requests sent earlier in the day are often called the same day.</p></details>
+      <details><summary>How is my price worked out?</summary><p>After a site survey we write a quote with materials, travel and labour on separate lines. The pricing section above shows the exact formula we use.</p></details>
+      <details><summary>What if the job turns out bigger than expected?</summary><p>We stop and quote the change first. Nothing extra is added to your bill unless you agree to it in writing.</p></details>
+      <details><summary>Do I need to buy the paint and materials?</summary><p>No. We can supply materials at tracked cost and show it on the quote. If you already have materials, tell us in your request.</p></details>
+      <details><summary>Which areas do you serve?</summary><p>Moose Jaw, Saskatchewan. Use the postal code checker at the top of the page. If you're just outside town, send a request anyway and we'll tell you if we can make it work.</p></details>
+      <details><summary>Do you do full renovations?</summary><p>Not yet. Renovations open once we have a standing crew. You can join the waitlist by choosing "Renovation" in the form.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">06 · About CCTC</span>
+      <div>
+        <h2>Rules we don't bend to grow faster.</h2>
+        <p>Most small contractors fail by expanding on optimism. CCTC grows only when its own job records say it can.</p>
+      </div>
+    </div>
+    <div class="principles rv">
+      <div class="pr"><span class="code">STD-01</span><div><h3>Growth is gated by results</h3><p>A new crew or region opens only after the current one hits its targets. No fixed-date expansion.</p></div></div>
+      <div class="pr"><span class="code">STD-02</span><div><h3>A reserve fund at every stage</h3><p>Half of profit goes to reserves first, from the very first job.</p></div></div>
+      <div class="pr"><span class="code">STD-03</span><div><h3>One standard everywhere</h3><p>Every future CCTC unit uses the same name, protocol and quote format.</p></div></div>
+      <div class="pr"><span class="code">STD-04</span><div><h3>AI-assisted, human-checked</h3><p>Software helps draft quotes and replies. A person reviews every one before it reaches you.</p></div></div>
+    </div>
+
+    <div class="founder" style="margin-top:72px">
+      <div class="rv">
+        <span class="mono">Founder</span>
+        <blockquote style="margin-top:20px">I started CCTC to turn a service that depends on luck and connections into one people can trust, with standards behind every job.</blockquote>
+        <p class="note">CCTC's founder studies Civil Engineering Technology at Saskatchewan Polytechnic and runs every job personally, so every dollar of cost is understood first-hand.</p>
+      </div>
+      <div class="rv">
+        <span class="mono">Roadmap</span>
+        <div class="road" style="margin-top:20px">
+          <div class="phase live"><div class="when">NOW</div><div class="dot"><i></i></div><div><h3>Pilot jobs</h3><p>Painting, small repairs and materials in Moose Jaw.</p></div></div>
+          <div class="phase"><div class="when">NEXT</div><div class="dot"><i></i></div><div><h3>CCTC-SK crew</h3><p>A standing crew of trades running the same protocol.</p></div></div>
+          <div class="phase"><div class="when">LATER</div><div class="dot"><i></i></div><div><h3>CCTC-AB and beyond</h3><p>New provinces as each unit proves itself.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="partners rv">
+      <div>
+        <span class="mono" style="color:var(--amber)">Investors, suppliers &amp; mentors</span>
+        <p>We'd rather show you a job log than a slide deck: per-job costs and margins, the growth gates, and the reserve fund against the 50/50 rule.</p>
+      </div>
+      <a class="btn" href="#book" data-preset="Investing or partnering">Get in touch →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#top" style="text-decoration:none">CCTC</a>
+        <p>Canadian Trusted Construction Company<br>Painting and home repair · Moose Jaw, Saskatchewan</p>
+        <p data-phone-block hidden><a data-phone-link style="color:var(--cyan)"></a></p>
+        <p data-email-block hidden><a data-email-link></a></p>
+      </div>
+      <div><span class="mono">Services</span><ul><li><a href="#services">Painting</a></li><li><a href="#services">Drywall &amp; repairs</a></li><li><a href="#services">Materials supply</a></li><li><a href="#book">Book a survey</a></li></ul></div>
+      <div><span class="mono">Company</span><ul><li><a href="#process">How it works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li><li><a href="#about">About</a></li></ul></div>
+    </div>
+    <div class="fbase"><span class="mono">© <span id="yr">2026</span> CCTC · Canadian Trusted Construction Company</span><span class="mono">Moose Jaw, SK</span></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar"><a data-phone-link data-short>Call</a><a href="#book">Book a survey</a></div>
+
+<script>
+/* =====================================================================
+   SETTINGS: the only part you need to edit.
+   ===================================================================== */
+const CONFIG = {
+  // Paste your Google Apps Script "Web app" URL here (see README step 4).
+  formEndpoint: "PASTE_YOUR_WEB_APP_URL_HERE",
+  // Your business phone, digits only with country code, e.g. "+13065550123". Leave "" to hide.
+  phone: "",
+  // How the phone shows on the page, e.g. "306-555-0123"
+  phoneDisplay: "",
+  // Public contact email. Leave "" to hide.
+  email: "",
+  // First 3 characters of postal codes you serve (Moose Jaw = S6H, S6J, S6K)
+  servedPrefixes: ["S6H", "S6J", "S6K"]
+};
+/* ===================================================================== */
+
+document.documentElement.classList.add('js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+$('yr').textContent = new Date().getFullYear();
+
+/* ---- contact details from CONFIG ---- */
+(() => {
+  const mbar = $('mbar');
+  if (CONFIG.phone) {
+    document.querySelectorAll('[data-phone-link]').forEach(a => {
+      a.href = 'tel:' + CONFIG.phone;
+      a.textContent = a.hasAttribute('data-short') ? 'Call' : (CONFIG.phoneDisplay || CONFIG.phone);
+      a.hidden = false;
+    });
+    document.querySelectorAll('[data-phone-block]').forEach(b => b.hidden = false);
+  } else {
+    mbar.querySelector('[data-phone-link]').remove();
+    mbar.classList.add('one');
+  }
+  if (CONFIG.email) {
+    document.querySelectorAll('[data-email-link]').forEach(a => { a.href = 'mailto:' + CONFIG.email; a.textContent = CONFIG.email; });
+    document.querySelectorAll('[data-email-block]').forEach(b => b.hidden = false);
+  }
+})();
+
+/* ---- service-area checker ---- */
+$('areaForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = $('pc').value.toUpperCase().replace(/\s+/g, ''), m = $('areaMsg');
+  if (!/^[A-Z]\d[A-Z](\d[A-Z]\d)?$/.test(v)) { m.style.color = 'var(--bad)'; m.textContent = 'Enter a Canadian postal code, like S6H 1A1.'; return; }
+  const ok = CONFIG.servedPrefixes.includes(v.slice(0, 3));
+  m.style.color = ok ? 'var(--good)' : 'var(--amber)';
+  m.innerHTML = ok ? 'Yes, you\'re in our service area. <a href="#book">Book a survey →</a>'
+                   : 'You may be outside our usual area. <a href="#book">Send a request</a> and we\'ll let you know.';
+  $('pc2').value = $('pc').value.toUpperCase();
+});
+
+/* ---- "Request" buttons pre-select the service ---- */
+document.querySelectorAll('[data-service],[data-preset]').forEach(b => b.addEventListener('click', e => {
+  const s = b.dataset.service || b.dataset.preset;
+  [...$('sv').options].forEach(o => { if (o.text === s) $('sv').value = o.value; });
+  if (b.tagName === 'BUTTON') { e.preventDefault(); $('book').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); }
+  setTimeout(() => $('nm').focus({preventScroll: true}), reduce ? 0 : 600);
+}));
+
+/* ---- lead form: sends to your Google Sheet ---- */
+(() => {
+  const form = $('leadForm'), fm = $('fm'), btn = $('sendBtn');
+  const setMsg = (t, cls) => { fm.textContent = t; fm.className = 'formmsg ' + (cls || ''); };
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const req = [['nm', 'your name'], ['ph', 'a phone number'], ['ms', 'a short description of the job']];
+    form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+    for (const [id, what] of req) {
+      if (!$(id).value.trim()) { $(id).setAttribute('aria-invalid', 'true'); $(id).focus(); setMsg('Please add ' + what + '.', 'err'); return; }
+    }
+    if ($('ph').value.replace(/\D/g, '').length < 10) { $('ph').setAttribute('aria-invalid', 'true'); $('ph').focus(); setMsg('Please enter a 10-digit phone number.', 'err'); return; }
+    const em = $('em').value.trim();
+    if (em && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { $('em').setAttribute('aria-invalid', 'true'); $('em').focus(); setMsg('That email address doesn\'t look right.', 'err'); return; }
+    if (!$('ok').checked) { $('ok').focus(); setMsg('Please tick the box so we\'re allowed to contact you.', 'err'); return; }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.consent = 'yes';
+    data.page = location.href;
+    data.sentAt = new Date().toISOString();
+
+    if (!CONFIG.formEndpoint || CONFIG.formEndpoint.startsWith('PASTE')) {
+      setMsg('Preview mode: the form is not connected yet. Add your Web app URL in CONFIG (see README).', 'err');
+      return;
+    }
+    btn.disabled = true; setMsg('Sending…');
+    try {
+      const res = await fetch(CONFIG.formEndpoint, {method: 'POST', headers: {'Content-Type': 'text/plain;charset=utf-8'}, body: JSON.stringify(data)});
+      let out = {};
+      try { out = await res.json(); } catch (_) {}
+      if (out.ok === false) throw new Error(out.error || 'rejected');
+      const first = data.name.trim().split(/\s+/)[0];
+      $('doneText').textContent = 'Thanks, ' + first + '. We\'ll call you ' + (out.callByText ? 'by ' + out.callByText : 'by the next business day') + '.' +
+        (em ? ' A confirmation is on its way to ' + em + '.' : '');
+      form.hidden = true; $('doneBox').hidden = false; $('doneBox').focus();
+      form.reset(); setMsg('');
+    } catch (err) {
+      setMsg('Sorry, your request didn\'t go through. Please try again' + (CONFIG.phone ? ' or call ' + (CONFIG.phoneDisplay || CONFIG.phone) : '') + '.', 'err');
+    } finally { btn.disabled = false; }
+  });
+  $('againBtn').addEventListener('click', () => { $('doneBox').hidden = true; form.hidden = false; $('nm').focus(); });
+})();
+
+/* ---- scroll reveal ---- */
+(() => {
+  if (reduce || !('IntersectionObserver' in window)) return;
+  const els = [...document.querySelectorAll('.rv')], vh = innerHeight;
+  els.forEach(el => { if (el.getBoundingClientRect().top > vh) el.classList.add('pre'); });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'});
+  els.forEach(el => io.observe(el));
+})();
+
+/* ---- hero: rotating wireframe house with a laser scan plane ---- */
+(() => {
+  const cv = $('scan'), ctx = cv.getContext('2d'), yLbl = $('scanY');
+  const C = {amber:'#FFB23F', cyan:'#6FD3FF', dim:'rgba(111,211,255,.18)', grid:'rgba(140,154,179,.12)', text:'#8C9AB3'};
+  const W=6, D=4.4, H=2.6, R=4.0;
+  const V=[[0,0,0],[W,0,0],[W,0,D],[0,0,D],[0,H,0],[W,H,0],[W,H,D],[0,H,D],[0,R,D/2],[W,R,D/2],
+    [2.4,0,0],[3.4,0,0],[3.4,2,0],[2.4,2,0],[0.7,1,0],[1.7,1,0],[1.7,1.9,0],[0.7,1.9,0],[4.3,1,0],[5.3,1,0],[5.3,1.9,0],[4.3,1.9,0],
+    [4.4,3.0,1.0],[4.9,3.0,1.0],[4.9,4.3,1.0],[4.4,4.3,1.0],[4.4,3.0,1.5],[4.9,3.0,1.5],[4.9,4.3,1.5],[4.4,4.3,1.5]];
+  const E=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7],[4,8],[7,8],[5,9],[6,9],[8,9],
+    [10,13],[13,12],[12,11],[14,15],[15,16],[16,17],[17,14],[18,19],[19,20],[20,21],[21,18],
+    [22,23],[23,24],[24,25],[25,22],[26,27],[27,28],[28,29],[29,26],[22,26],[23,27],[24,28],[25,29]];
+  let w, h, dpr;
+  function size(){dpr=Math.min(devicePixelRatio||1,2);const r=cv.getBoundingClientRect();w=r.width;h=r.height;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size(); addEventListener('resize', size);
+  function proj(p,a){
+    const x=p[0]-W/2, y=p[1]-1.6, z=p[2]-D/2, ca=Math.cos(a), sa=Math.sin(a);
+    const rx=x*ca-z*sa, rz=x*sa+z*ca, tilt=0.42, ct=Math.cos(tilt), st=Math.sin(tilt);
+    const ry=y*ct-rz*st, rz2=y*st+rz*ct, s=Math.min(w,h)/9.5, f=14/(14+rz2);
+    return [w/2+rx*s*f, h*0.53-ry*s*f, rz2];
+  }
+  const lerp=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
+  function draw(t){
+    const a=reduce?0.65:0.65+t*0.00018, ph=reduce?0.62:((t%6000)/6000), scanY=ph*R*1.12;
+    ctx.clearRect(0,0,w,h); ctx.lineWidth=1; ctx.strokeStyle=C.grid;
+    for(let i=-2;i<=W+2;i++){const p1=proj([i,0,-2],a),p2=proj([i,0,D+2],a);ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();}
+    for(let k=-2;k<=D+2;k++){const p1=proj([-2,0,k],a),p2=proj([W+2,0,k],a);ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();}
+    for(const [i,j] of E){
+      let A=V[i],B=V[j]; if(A[1]>B[1])[A,B]=[B,A];
+      const segs=[];
+      if(B[1]<=scanY) segs.push([A,B,true]); else if(A[1]>=scanY) segs.push([A,B,false]);
+      else {const M=lerp(A,B,(scanY-A[1])/(B[1]-A[1]));segs.push([A,M,true],[M,B,false]);}
+      for(const [P,Q,lit] of segs){const p=proj(P,a),q=proj(Q,a);ctx.strokeStyle=lit?C.cyan:C.dim;ctx.lineWidth=lit?1.5:1;ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(q[0],q[1]);ctx.stroke();}
+    }
+    V.slice(0,10).forEach(v=>{const p=proj(v,a);ctx.fillStyle=v[1]<=scanY?C.amber:C.dim;ctx.fillRect(p[0]-2,p[1]-2,4,4);});
+    if(scanY<=R*1.05){
+      const m=0.6, cs=[[-m,scanY,-m],[W+m,scanY,-m],[W+m,scanY,D+m],[-m,scanY,D+m]].map(c=>proj(c,a));
+      ctx.beginPath();cs.forEach((c,k)=>k?ctx.lineTo(c[0],c[1]):ctx.moveTo(c[0],c[1]));ctx.closePath();
+      ctx.fillStyle='rgba(255,178,63,.07)';ctx.fill();ctx.strokeStyle='rgba(255,178,63,.75)';ctx.lineWidth=1.2;ctx.stroke();
+    }
+    const d1=proj([0,0,-0.9],a),d2=proj([W,0,-0.9],a);
+    ctx.strokeStyle=C.text;ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(d1[0],d1[1]);ctx.lineTo(d2[0],d2[1]);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=C.text;ctx.font='11px "IBM Plex Mono", monospace';ctx.textAlign='center';
+    ctx.fillText('6.00 m',(d1[0]+d2[0])/2,(d1[1]+d2[1])/2+16);
+    yLbl.textContent='Z '+Math.min(scanY,R).toFixed(2)+' m';
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ---- pricing calculator ---- */
+(() => {
+  const ids=['mat','trv','ads','price'], fmt=n=>(n<0?'−$':'$')+Math.abs(n).toFixed(2);
+  function upd(){
+    const [m,t,a,p]=ids.map(i=>+$(i).value);
+    ids.forEach(i=>$('o-'+i).textContent='$'+$(i).value);
+    const cost=m+t+a, profit=p-cost, margin=profit/p*100;
+    $('r-profit').textContent=fmt(profit); $('r-margin').textContent=margin.toFixed(1)+'%';
+    $('r-profit').classList.toggle('neg',profit<0); $('r-margin').classList.toggle('neg',profit<0);
+    $('r-res').textContent=profit>0?fmt(profit/2):'$0.00 (no profit to split)';
+    const total=Math.max(p,cost);
+    [['b-mat',m],['b-trv',t],['b-ads',a],['b-pro',Math.max(profit,0)]].forEach(([id,v])=>$(id).style.flexBasis=(v/total*100)+'%');
+  }
+  ids.forEach(i=>$(i).addEventListener('input',upd)); upd();
+})();
+</script>
+</body>
+</html>
